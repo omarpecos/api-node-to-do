@@ -23,7 +23,7 @@ const router = new Router();
 router.get('/', async (req,res) =>{
 
     try{
-        const todos = await toDo.find({});
+        const todos = await toDo.find({}).sort('-_id');
 
         res.json({
             status : 'ok',
@@ -65,7 +65,7 @@ router.get('/', async (req,res) =>{
  */
 router.post('/', async (req,res) =>{
     let body = req.body;
-    console.log(body);
+        //console.log(body);
 
     try{
        
@@ -89,7 +89,7 @@ router.post('/', async (req,res) =>{
         });
 
     }catch(e){
-        console.error(e.message);
+        console.log(e.message);
         res.json({
             status : 'fail',
             error : e.message
