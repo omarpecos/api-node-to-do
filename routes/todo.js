@@ -30,7 +30,7 @@ router.get('/', async (req,res) =>{
             todos
         });
     }catch(e){
-        console.error(e.message);
+        console.log(e.message);
         res.json({
             status : 'fail',
             error : e.message
@@ -142,7 +142,7 @@ router.put('/:id', async (req,res) =>{
         });
 
     }catch(e){
-        console.error(e.message);
+        console.log(e.message);
         res.json({
             status : 'fail',
             error : e.message
@@ -185,7 +185,7 @@ router.delete('/:id', async (req,res) =>{
         });
 
     }catch(e){
-        console.error(e.message);
+        console.log(e.message);
         res.json({
             status : 'fail',
             error : e.message

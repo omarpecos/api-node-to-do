@@ -57,15 +57,19 @@ const swaggerDocs = swaggerJsDoc(swaggerOptions);
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 
 
-app.listen( PORT ,() =>{
-
-    mongoose.connect(process.env.MONGO_URI,
-        { useNewUrlParser: true, useUnifiedTopology: true })
-        .then(() =>{
-            console.log('Connected to mongo!');
-            console.log(`Running in http://localhost:${PORT}`);
-        }).catch(() =>{
-            console.log('Something failed with the BD')
+mongoose.connect(process.env.MONGO_URI,
+    { 
+      useNewUrlParser: true,
+      useFindAndModify : false,
+      useUnifiedTopology: true 
+    })
+    .then(() =>{
+        app.listen( PORT ,() =>{
+          console.log('Connected to mongo!');
+          console.log(`Running in http://localhost:${PORT}`);
         });
-
+    })
+    .catch(() =>{
+        console.log('Something failed with the BD')
 });
+
