@@ -1,19 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My TODO API</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        let winLocation = window.location;
-        if (winLocation.hostname == "localhost"){
-            winLocation.assign( winLocation.protocol + "//"+winLocation.hostname + ":"+winLocation.port + "/api-docs");
-        }else{
-            winLocation.assign( winLocation.protocol + "//"+ winLocation.hostname + "/api-docs");
-        }
-       
+      let winLocation = window.location;
+      console.log(winLocation.port);
+      if (winLocation.port != 80) {
+        winLocation.assign(
+          winLocation.protocol +
+            "//" +
+            winLocation.hostname +
+            ":" +
+            winLocation.port +
+            "/api-docs"
+        );
+      } else {
+        winLocation.assign(
+          winLocation.protocol + "//" + winLocation.hostname + "/api-docs"
+        );
+      }
     </script>
-</body>
+  </body>
 </html>
