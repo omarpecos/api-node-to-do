@@ -1,15 +1,11 @@
-version: "3"
+version: '3'
 
 services:
   api:
     build: .
-    depends_on:
-      - mongo
+    restart: always
     environment:
       - PORT=${PORT}
       - MONGO_URI=${MONGO_URI}
     ports:
-      - "3000:3000"
-
-  mongo:
-    image: mongo
+      - '${PORT}:${PORT}'

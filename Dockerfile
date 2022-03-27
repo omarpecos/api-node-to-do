@@ -1,6 +1,5 @@
-FROM node
-COPY . /var/www
-WORKDIR /var/www
+FROM mhart/alpine-node:12
+COPY . /app
+WORKDIR /app
 RUN npm install
-EXPOSE 3000
 ENTRYPOINT ["npm","start"]
